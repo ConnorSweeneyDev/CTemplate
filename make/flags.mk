@@ -11,5 +11,5 @@ SYSTEM_INCLUDES := -isystemexternal/include
 ifeq ($(UNAME), Windows)
   LIBRARIES := -static -lgcc
 else ifeq ($(UNAME), Linux)
-  LIBRARIES := -static -ldl -lm -lc -lgcc -Wl,-rpath,'$$ORIGIN'
+  LIBRARIES := -static -ldl -lc -lgcc -Wl,-rpath,'$$ORIGIN'
 endif
