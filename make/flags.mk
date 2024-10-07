@@ -7,10 +7,9 @@ endif
 
 WARNINGS := -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wundef -Wclobbered -Wdeprecated -Wmultichar -Wuninitialized -Wunreachable-code -Wstrict-aliasing -Wreturn-type -Wtype-limits -Wformat-security -Wpointer-arith -Wmaybe-uninitialized -Wempty-body -Wdouble-promotion -Wcast-qual -Wcast-align -Wfloat-equal -Wlogical-op -Wduplicated-cond -Wshift-overflow=2 -Wformat=2
 INCLUDES := -Iprogram/include
+SYSTEM_INCLUDES := -isystemexternal/include
 ifeq ($(UNAME), Windows)
-  SYSTEM_INCLUDES := -isystemexternal/include
-  LIBRARIES := -static
+  LIBRARIES := -static -lgcc
 else ifeq ($(UNAME), Linux)
-  SYSTEM_INCLUDES := -isystemexternal/include
-  LIBRARIES := -static
+  LIBRARIES := -static -ldl -lm -lc -lgcc -Wl,-rpath,'$$ORIGIN'
 endif
