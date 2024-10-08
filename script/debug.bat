@@ -1,3 +1,3 @@
 @ECHO OFF
 
-START pwsh -Command "gdb binary/windows/CTemplate.exe"
+wt --window 0 -p "PowerShell" pwsh -Command "cd %cd% && gdb binary/windows/CTemplate.exe"
