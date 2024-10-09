@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gdb binary/linux/CTemplate.out
+gdb -tui ./binary/linux/CTemplate.out
