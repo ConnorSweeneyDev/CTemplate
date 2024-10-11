@@ -5,6 +5,8 @@
 int main(void)
 {
   say_hello();
+  getchar();
+
   return 0;
 }
 

@@ -1,9 +1,5 @@
 @ECHO OFF
 
-IF "%1" == "-wezterm" (
-  SET TERM=wezterm cli spawn --cwd %CD% pwsh -Command
-) ELSE (
-  SET TERM=pwsh -Command
-)
-
-%TERM% "./binary/windows/CTemplate.exe"
+SET COMMAND=pwsh -Command "./binary/windows/CTemplate.exe"
+IF "%1" == "-wezterm" (wezterm cli spawn --cwd %CD% %COMMAND%)
+IF "%1" == "" (START %COMMAND%)
