@@ -26,7 +26,7 @@ TARGET_FORMAT_FILES := $(CC_SOURCE_FILES) $(H_SOURCE_FILES)
 
 compile_commands:
 	@$(ECHO) "[" > $(COMPILE_COMMANDS_FILE)
-	@for source in $(CC_SOURCE_FILES); do $(ECHO) "\t{ \"directory\": \"$(CURDIR)\", \"command\": \"$(CC) $(CC_FLAGS) $(WARNINGS) $(INCLUDES) $(SYSTEM_INCLUDES) -c $$source -o $(OBJECT_DIRECTORY)/$$(basename $$source .c).o\", \"file\": \"$$source\" },"; done >> $(COMPILE_COMMANDS_FILE)
+	@for source in $(CC_SOURCE_FILES); do $(ECHO) "\t{ \"directory\": \"$(CURDIR)\", \"command\": \"$(CC) $(CC_FLAGS) $(WARNINGS) $(INCLUDES) $(SYSTEM_INCLUDES) -c $$source -o $(BINARY_OBJECT_DIRECTORY)/$$(basename $$source .c).o\", \"file\": \"$$source\" },"; done >> $(COMPILE_COMMANDS_FILE)
 	@sed -i "$$ s/,$$//" $(COMPILE_COMMANDS_FILE)
 	@$(ECHO) "]" >> $(COMPILE_COMMANDS_FILE)
 	@$(ECHO) "WRITE | $(COMPILE_COMMANDS_FILE)"
